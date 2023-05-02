@@ -13,7 +13,9 @@ const Login = () => {
         signIn(email,password)
         .then((result)=>{
             const user = result.user;
+            toast.success("Welcome to recipe Bangladesh")
             console.log(user);
+            form.reset();
         })
         .catch((error)=>toast.error(error.message))
     }

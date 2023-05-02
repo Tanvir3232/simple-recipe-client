@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 const Header = () => {
+    const {user,logOut} = useContext(AuthContext);
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{})
+        .catch((error)=>toast.error(error.message))
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,8 +36,10 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className='btn'>Login</Link>
-                <Link to='/register'className='btn ml-1'>Register</Link>
+                {
+                    user?<> <img title={user.displayName} className='w-10 h-10 rounded-full mr-2' src={user.photoURL} alt="no found" />  <button className='btn btn-error' onClick={handleLogOut}>Sign Out</button></>:<><Link to='/login' className='btn'>Login</Link>
+                    <Link to='/register'className='btn ml-1'>Register</Link></>
+                }
             </div>
         </div>
     );
