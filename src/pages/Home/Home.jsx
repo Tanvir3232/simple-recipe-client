@@ -2,9 +2,14 @@ import React from 'react';
 import slide1 from '../../assets/slide1.png'
 import slide2 from '../../assets/slide2.png'
 import slide3 from '../../assets/slide3.png'
+import { useLoaderData } from 'react-router-dom';
+import Chef from './Chef';
 const Home = () => {
+    const chefs = useLoaderData();
+    console.log(chefs);
     return (
         <div className='mx-4 md:mx-12'>
+            {/* Banner section */}
             <div className='flex flex-col md:flex-row justify-between items-center'>
                 <div className=' p-5 '>
                     <h1 className='text-5xl font-medium'> Easy Cooking & Tasty Eating</h1>
@@ -40,6 +45,13 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* Chef Section */}
+            <h1 className='text-5xl text-center mt-16'>Chefs</h1>
+            <div className='grid md:grid-cols-3 gap-5 mb-5'>
+                {
+                    chefs.map(chef => <Chef key={chef.chef_id} chef={chef}></Chef>)
+                }
             </div>
         </div>
     );
