@@ -8,7 +8,7 @@ import TopRecipe from './TopRecipe';
 import Contact from './Contact';
 const Home = () => {
     const chefs = useLoaderData();
-    console.log(chefs);
+    
     return (
         <div className='mx-4 md:mx-12'>
             {/* Banner section */}
