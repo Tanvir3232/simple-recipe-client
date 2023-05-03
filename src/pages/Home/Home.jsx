@@ -4,6 +4,8 @@ import slide2 from '../../assets/slide2.png'
 import slide3 from '../../assets/slide3.png'
 import { useLoaderData } from 'react-router-dom';
 import Chef from './Chef';
+import TopRecipe from './TopRecipe';
+import Contact from './Contact';
 const Home = () => {
     const chefs = useLoaderData();
     console.log(chefs);
@@ -47,12 +49,14 @@ const Home = () => {
                 </div>
             </div>
             {/* Chef Section */}
-            <h1 className='text-5xl text-center mt-16'>Chefs</h1>
+            <h1 className='text-5xl text-center font-medium mt-16'>Chefs</h1>
             <div className='grid md:grid-cols-3 gap-5 mb-5'>
                 {
                     chefs.map(chef => <Chef key={chef.chef_id} chef={chef}></Chef>)
                 }
             </div>
+            <TopRecipe></TopRecipe>
+            <Contact></Contact>
         </div>
     );
 };
