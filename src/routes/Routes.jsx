@@ -11,6 +11,7 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import PrivateRoute from './PrivateRoute';
 import Blog from '../pages/Blog/Blog';
 
+
 const  router = createBrowserRouter([
     {
         path:'/',
