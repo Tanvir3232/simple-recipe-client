@@ -20,7 +20,7 @@ const  router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/chefs')
+                loader:()=>fetch('https://recipe-server-tanvir3232.vercel.app/chefs')
             },
             {
                 path:'/login',
@@ -33,7 +33,7 @@ const  router = createBrowserRouter([
             {
                 path:'/chef/:id',
                 element:<PrivateRoute><ViewRecipe></ViewRecipe></PrivateRoute>,
-                loader:()=>fetch(`http://localhost:5000/chefs`)
+                loader:()=>fetch(`https://recipe-server-tanvir3232.vercel.app/chefs`)
             },
             {
                 path:'/blog',

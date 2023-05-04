@@ -1,7 +1,6 @@
 import React from 'react';
-import { PDFViewer, Document, Page, Text } from '@react-pdf/renderer';
-const Blog = () => {
-    
+
+const Blogdetails = () => {
     return (
         <div className='mx-4  md:mx-16 my-6 p-3 '>
             <h1 className='text-3xl text-center font-medium'>Some important viva question & answer</h1>
@@ -46,11 +45,11 @@ const Blog = () => {
                 <ul className='list-disc ml-5'>
                     <h1 className='text-green-500 font-bold'>Answer:</h1>
                     <li className='ml-5 my-1'> A custom hook is a reusable function that contains stateful logic and can be used to improve the readability, modularity, and maintainability of your code. You may develop a unique hook to reuse logic across several components, hide complexity, and improve the testability of your code.</li>
-                  
+
                 </ul>
             </div>
         </div>
     );
 };
 
-export default Blog;
+export default Blogdetails;
