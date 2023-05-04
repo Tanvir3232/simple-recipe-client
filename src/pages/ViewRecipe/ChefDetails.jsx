@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ChefDetails = ({ chefData }) => {
-    console.log(chefData);
+    
     const { name, experience, likes, picture, total_recipes, bio } = chefData;
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">

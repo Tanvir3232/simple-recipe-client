@@ -4,9 +4,10 @@ import Main from '../layouts/Main';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
-import ErrorPage from '../pages/ErrorPage/ErropPage';
+
 import ChefRecipes from '../pages/ViewRecipe/ViewRecipe';
 import ViewRecipe from '../pages/ViewRecipe/ViewRecipe';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
 
 const  router = createBrowserRouter([
     {
