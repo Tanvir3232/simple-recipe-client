@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { Rating } from '@smastrom/react-rating'
 
+import '@smastrom/react-rating/style.css'
 const RecipeDetails = ({ recipe }) => {
     const { recipe_name, ingredients, cooking_method, rating } = recipe;
     const [favorite,setFavorite] = useState(false);
@@ -20,7 +22,8 @@ const RecipeDetails = ({ recipe }) => {
                     }
                 </ul>
                 <p> <strong>Cooking_medhod: </strong>  {cooking_method}</p>
-                <p> <strong>Rating: </strong> {rating}</p>
+                <p><strong>Rating: </strong></p>
+                <span className='flex items-center gap-5'>  <Rating style={{ maxWidth: 250 }} value={rating} readOnly /> {rating}</span>
                 <button onClick={handleFavorite} disabled={favorite} className='btn btn-outline w-3/4 mt-6 mx-auto btn-success'>Favorite</button>
             </div>
         </div>
