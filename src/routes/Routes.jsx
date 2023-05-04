@@ -5,9 +5,10 @@ import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 
-import ChefRecipes from '../pages/ViewRecipe/ViewRecipe';
+
 import ViewRecipe from '../pages/ViewRecipe/ViewRecipe';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import PrivateRoute from './PrivateRoute';
 
 const  router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const  router = createBrowserRouter([
             },
             {
                 path:'/chef/:id',
-                element:<ViewRecipe></ViewRecipe>,
+                element:<PrivateRoute><ViewRecipe></ViewRecipe></PrivateRoute>,
                 loader:()=>fetch(`http://localhost:5000/chefs`)
             }
         ]

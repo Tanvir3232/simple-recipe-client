@@ -16,7 +16,7 @@ const RecipeDetails = ({ recipe }) => {
                 <ul className='grid grid-cols-3 ml-5'>
                    
                     {
-                        ingredients.map(ing =><li className='list-decimal'>{ing}</li>)
+                        ingredients.map((ing,index) =><li key={index} className='list-decimal'>{ing}</li>)
                     }
                 </ul>
                 <p> <strong>Cooking_medhod: </strong>  {cooking_method}</p>
