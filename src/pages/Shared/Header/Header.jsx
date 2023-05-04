@@ -23,30 +23,28 @@ const Header = () => {
                             to='/'>Home</NavLink></li>
                         <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
                             to='/blog'>Blog</NavLink></li>
-                        <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
-                            to='/about'>About</NavLink></li>
-                        <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
-                            to='/contact'>Contact Us</NavLink></li>
+                        {
+                            user ? <> <img title={user.displayName} className='w-10 h-10 rounded-full mr-2' src={user.photoURL} alt="no found" />  <button className='btn btn-error' onClick={handleLogOut}>Sign Out</button></> :
+                                <ul className="menu menu-compact"><li><NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""} to='/login' >Login</NavLink></li>
+                                    <li><NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""} to='/register'>Register</NavLink></li></ul>
+                        }
                     </ul>
                 </div>
                 <Link><img src={logo} alt="" /></Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
                         to='/'>Home</NavLink></li>
                     <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
                         to='/blog'>Blog</NavLink></li>
-                    <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
-                        to='/about'>About</NavLink></li>
-                    <li> <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""}
-                        to='/contact'>Contact Us</NavLink></li>
+
                 </ul>
-            </div>
-            <div className="navbar-end">
                 {
-                    user ? <> <img title={user.displayName} className='w-10 h-10 rounded-full mr-2' src={user.photoURL} alt="no found" />  <button className='btn btn-error' onClick={handleLogOut}>Sign Out</button></> : <><Link to='/login' className='btn'>Login</Link>
-                        <Link to='/register' className='btn ml-1'>Register</Link></>
+                    user ? <> <img title={user.displayName} className='w-10 h-10 rounded-full mr-2' src={user.photoURL} alt="no found" />  <button className='btn btn-error' onClick={handleLogOut}>Sign Out</button></> :
+                        <ul className="menu menu-horizontal px-1"><li><NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""} to='/login' >Login</NavLink></li>
+                            <li><NavLink className={({ isActive }) => isActive ? "text-blue-500 font-medium" : ""} to='/register'>Register</NavLink></li></ul>
                 }
             </div>
         </div>

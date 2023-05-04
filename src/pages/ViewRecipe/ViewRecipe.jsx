@@ -13,7 +13,7 @@ const ViewRecipe = () => {
             <ChefDetails chefData={chefData}></ChefDetails>
             <h1 className='text-4xl mt-12 text-orange-500 font-medium text-center'>All Recipes </h1>
            
-            <div className='grid grid-cols-2 my-5 gap-6'>
+            <div className='grid md:grid-cols-2 my-5 gap-6'>
                 {
                     chefData.recipes.map((recipe, index) => <RecipeDetails
                         key={index}
