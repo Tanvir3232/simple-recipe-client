@@ -14,7 +14,7 @@ const Home = () => {
             {/* Banner section */}
             <div className='flex flex-col md:flex-row justify-between items-center'>
                 <div className=' p-5 '>
-                    <h1 className='text-5xl font-medium'> Easy Cooking & Tasty Eating</h1>
+                    <h1 className='md:text-5xl text-3xl font-medium'> Easy Cooking & Tasty Eating</h1>
                     <p className='mt-2'>Discover, Cook, and Enjoy the Best Recipes from Around the World - Your Ultimate Recipe Guide</p>
                 </div>
                 <div className="carousel w-full ">

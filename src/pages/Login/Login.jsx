@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const {signInWithGoogle,signInWithGithub,signIn} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
     const handleSignIn = event =>{
         event.preventDefault();
         const form = event.target;
@@ -15,6 +18,7 @@ const Login = () => {
             const user = result.user;
             toast.success("Welcome to recipe Bangladesh")
             console.log(user);
+            navigate(from,{replace:true});
             form.reset();
         })
         .catch((error)=>toast.error(error.message))
@@ -24,16 +28,18 @@ const Login = () => {
         signInWithGoogle()
         .then((result)=>{
             const user = result.user;
-            console.log(user)
+            navigate(from,{replace:true});
+            
         })
-        .catch((error)=>console.log(error.message))
+        .catch((error)=>toast.error(error.message))
     }
     const handleSignInWithGithub = (event) =>{
         event.preventDefault();
         signInWithGithub()
         .then((result)=>{
             const user = result.user;
-            console.log(user)
+            navigate(from,{replace:true});
+            
         })
         .catch((error)=>console.log(error.message))
     }
