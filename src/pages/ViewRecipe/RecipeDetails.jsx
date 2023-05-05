@@ -15,7 +15,7 @@ const RecipeDetails = ({ recipe }) => {
             <div className="card-body">
                 <h2 className="card-title">{recipe_name}</h2>
                 <p> <strong> Ingredients:</strong> </p>
-                <ul className='grid grid-cols-3 ml-5'>
+                <ul className='grid md:grid-cols-3 ml-5'>
                    
                     {
                         ingredients.map((ing,index) =><li key={index} className='list-decimal'>{ing}</li>)

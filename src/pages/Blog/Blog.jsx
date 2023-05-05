@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import React, { useRef, useState } from 'react';
+import { useReactToPrint } from "react-to-print";
 const Blog = () => {
     const [loader, setLoader] = useState(false);
+    const conponentPDF= useRef();
+    const generatePDF= useReactToPrint({
 
-    const downloadPDF = () => {
-        const capture = document.querySelector('.download');
+        content: ()=>conponentPDF.current,
+        documentTitle:"VivaQuestion&Answer",
+    });
+    const downloadPdf = () =>{
+        generatePDF();
         setLoader(true);
-        html2canvas(capture).then((canvas) => {
-            const imgData = canvas.toDataURL('img/png');
-            const doc = new jsPDF('p', 'mm', 'a4');
-            const componentWidth = doc.internal.pageSize.getWidth();
-            const componentHeight = doc.internal.pageSize.getHeight();
-            doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
-            setLoader(false);
-            doc.save('download.pdf');
-        })
     }
     return (
         <div >
-            <div className='mx-4  md:mx-16 my-6 p-3 download'>
+            <div className='mx-4  md:mx-16 my-6 p-3'  ref={conponentPDF} style={{width:'100%'}}>
                 <h1 className='text-3xl text-center font-medium'>Some important viva question & answer</h1>
                 <hr className='bg-black h-1 mt-3 mb-6' />
                 <div>
@@ -70,7 +64,7 @@ const Blog = () => {
             <div className='text-center my-5'>
                 <button
                     className="btn btn-success"
-                    onClick={downloadPDF}
+                    onClick={ downloadPdf}
                     disabled={!(loader === false)}
                 >
                     {loader ? (
