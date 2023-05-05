@@ -1,20 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
+
 import { useReactToPrint } from "react-to-print";
 const Blog = () => {
-    const [loader, setLoader] = useState(false);
+    
     const conponentPDF= useRef();
     const generatePDF= useReactToPrint({
 
         content: ()=>conponentPDF.current,
         documentTitle:"VivaQuestion&Answer",
     });
-    const downloadPdf = () =>{
-        generatePDF();
-        setLoader(true);
-    }
+   
     return (
         <div >
-            <div className='mx-4  md:mx-16 my-6 p-3'  ref={conponentPDF} style={{width:'100%'}}>
+            <div className='mx-4  md:mx-16 my-6 p-3'  ref={conponentPDF} >
                 <h1 className='text-3xl text-center font-medium'>Some important viva question & answer</h1>
                 <hr className='bg-black h-1 mt-3 mb-6' />
                 <div>
@@ -64,14 +62,10 @@ const Blog = () => {
             <div className='text-center my-5'>
                 <button
                     className="btn btn-success"
-                    onClick={ downloadPdf}
-                    disabled={!(loader === false)}
+                    onClick={ generatePDF}
+                   
                 >
-                    {loader ? (
-                        <span>Downloading</span>
-                    ) : (
-                        <span>Download</span>
-                    )}
+                    Download
 
                 </button>
             </div>
